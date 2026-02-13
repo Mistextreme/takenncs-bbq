@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>takenncs-bbq</title>
+
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://kit.fontawesome.com/f7b3d8c6e9.js" crossorigin="anonymous"></script>
+<script src="script.js"></script>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
+* { font-family: Inter, sans-serif; }
+
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-thumb { background:#334155; border-radius:10px; }
+</style>
+</head>
+<body>
+
+<div id="bbqMenu" class="fixed inset-0 bg-black/70 flex items-center justify-center hidden">
+<div class="w-[520px] max-h-[80vh] bg-slate-900 border border-slate-700 rounded-xl overflow-hidden">
+
+    <div class="px-6 py-4 border-b border-slate-700 flex items-center gap-3">
+        <i class="fa-solid fa-fire text-amber-400 text-xl"></i>
+        <div>
+            <h1 class="text-white text-lg font-semibold">BBQ Grill</h1>
+            <p class="text-slate-400 text-xs">Vali toode grillimiseks</p>
+        </div>
+        <div class="ml-auto text-slate-400 text-sm" id="itemCount">0/0</div>
+    </div>
+
+    <div class="p-5">
+        <input id="searchInput" onkeyup="filtreeriItems()"
+            class="w-full bg-slate-800 border border-slate-700 rounded-lg px-4 py-2 text-white placeholder-slate-500 focus:outline-none focus:border-amber-400"
+            placeholder="Otsi...">
+            <div id="itemsContainer"
+                class="grid grid-cols-2 gap-3 mt-4 max-h-[260px] overflow-y-auto pr-1">
+            </div>
+
+        <div id="selectedPanel"
+            class="hidden mt-4 p-4 bg-slate-800 border border-slate-700 rounded-lg">
+
+            <div class="flex justify-between items-center mb-2">
+                <h2 id="selectedLabel" class="text-white font-medium"></h2>
+                <button onclick="tyhjendaValik()" class="text-slate-400 hover:text-red-400">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+
+            <p id="selectedCount" class="text-sm text-slate-400 mb-4"></p>
+
+            <button onclick="alustaGrillimist()"
+                class="w-full bg-slate-700 hover:bg-slate-600 text-white py-2.5 rounded-lg font-medium flex justify-center items-center gap-2">
+                <i class="fa-solid fa-fire text-amber-400"></i>
+                Alusta grillimist
+            </button>
+        </div>
+        
+        <div class="flex gap-3 mt-5">
+            <button onclick="sulgeMenu()"
+                class="flex-1 bg-slate-800 hover:bg-slate-700 border border-slate-700 text-white py-2 rounded-lg">
+                Sulge
+            </button>
+        </div>
+    </div>
+</div>
+</div>
+
+</body>
+</html>
