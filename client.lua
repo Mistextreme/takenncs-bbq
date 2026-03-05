@@ -1,21 +1,21 @@
-local QBCore = exports['qb-core']:GetCoreObject()
+local ESX = exports['es_extended']:getSharedObject()
 local isGrilling = false
 
 local function startGrilling(itemName)
     if isGrilling then
-        QBCore.Functions.Notify('Oled juba grillimas!', 'error')
+        Config.Notify('Oled juba grillimas!', 'error')
         return false
     end
 
     local cookData = Config.CookableItems[itemName]
     if not cookData then
-        QBCore.Functions.Notify('Seda ei saa grillida!', 'error')
+        Config.Notify('Seda ei saa grillida!', 'error')
         return false
     end
 
     local hasItem = exports.ox_inventory:GetItemCount(itemName)
     if not hasItem or hasItem < 1 then
-        QBCore.Functions.Notify('Sul pole seda toorainet!', 'error')
+        Config.Notify('Sul pole seda toorainet!', 'error')
         return false
     end
 
@@ -32,14 +32,14 @@ local function startGrilling(itemName)
     })
 
     if not progress then
-        QBCore.Functions.Notify('Grillimine katkestatud!', 'error')
+        Config.Notify('Grillimine katkestatud!', 'error')
         isGrilling = false
         return false
     end
 
     local stillHasItem = exports.ox_inventory:GetItemCount(itemName)
     if not stillHasItem or stillHasItem < 1 then
-        QBCore.Functions.Notify('Tooraine kadus ootamatult!', 'error')
+        Config.Notify('Tooraine kadus ootamatult!', 'error')
         isGrilling = false
         return false
     end
@@ -67,7 +67,7 @@ local function openBbqMenu()
     end
 
     if #items == 0 then
-        QBCore.Functions.Notify('Sul pole midagi grillida!', 'error')
+        Config.Notify('Sul pole midagi grillida!', 'error')
         return
     end
 
