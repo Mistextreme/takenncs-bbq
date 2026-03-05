@@ -1,4 +1,3 @@
-local ESX = exports['es_extended']:getSharedObject()
 local isGrilling = false
 
 local function startGrilling(itemName)
