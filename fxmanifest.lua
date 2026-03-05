@@ -3,7 +3,7 @@ game 'gta5'
 
 author 'takenncs'
 name 'takenncs-bbq'
-description 'Grillisüsteem'
+description 'Grillisüsteem - ESX Version'
 version '1.0.0'
 
 shared_scripts {
@@ -16,6 +16,7 @@ client_scripts {
 }
 
 server_scripts {
+    '@es_extended/imports.lua',
     'server.lua'
 }
 
@@ -27,10 +28,10 @@ files {
 }
 
 dependencies {
+    'es_extended',
     'ox_lib',
     'ox_target',
-    'ox_inventory',
-    'qb-core'
+    'ox_inventory'
 }
 
 lua54 'yes'
