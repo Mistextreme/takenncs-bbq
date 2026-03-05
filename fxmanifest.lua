@@ -16,7 +16,6 @@ client_scripts {
 }
 
 server_scripts {
-    '@es_extended/imports.lua',
     'server.lua'
 }
 
